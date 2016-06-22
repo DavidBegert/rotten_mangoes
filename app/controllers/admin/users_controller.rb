@@ -13,7 +13,6 @@ class Admin::UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      binding.pry
       redirect_to admin_users_path, notice: "You have successfully created #{@user.full_name}"
     else
       render :'admin/users/new'
@@ -40,6 +39,7 @@ class Admin::UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
+    UserMailer.destroyed_email(@user).deliver
     @user.destroy
     redirect_to admin_users_path, notice: "That fool was successfully taken care of..."
   end
