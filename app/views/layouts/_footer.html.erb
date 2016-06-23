@@ -8,5 +8,8 @@
     <% else %>
       <%= link_to "Log In", new_sessions_path %> | <%= link_to "Sign Up", new_user_path %> 
     <% end %>
+    <% if current_admin && current_user != current_admin%>
+      <%= link_to "Switch back to admin account", admin_sessions_path, method: :put %>
+    <% end %>
   </small>
 </footer>

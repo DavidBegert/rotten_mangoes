@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def only_allow_admin
-    unless current_user && current_user.is_admin
+    unless (current_user && current_user.is_admin) || current_admin
       flash[:alert] = "You must be an admin to access this page"
       redirect_to movies_path
     end
@@ -24,6 +24,10 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
-  helper_method :current_user
+  def current_admin
+    @admin ||= User.find(session[:admin_id]) if session[:admin_id]
+  end
+
+  helper_method :current_user, :current_admin
   
 end

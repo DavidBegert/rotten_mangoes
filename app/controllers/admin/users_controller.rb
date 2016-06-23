@@ -44,6 +44,7 @@ class Admin::UsersController < ApplicationController
     redirect_to admin_users_path, notice: "That fool was successfully taken care of..."
   end
 
+
   protected
 
   def user_params
