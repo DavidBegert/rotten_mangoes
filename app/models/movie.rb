@@ -22,12 +22,8 @@ class Movie < ActiveRecord::Base
 
   validate :release_date_is_in_the_past
 
-  def self.title_filter(title)
-    where("title LIKE ?", "%#{title}%")
-  end
-
-  def self.director_filter(director)
-    where("director LIKE ?", "%#{director}%")
+  def self.title_or_director_filter(term)
+    where("title LIKE :term OR director LIKE :term", term: "%#{term}%")
   end
 
   def self.duration_filter(duration)
