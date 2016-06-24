@@ -6,7 +6,6 @@ $(document).ready(function() {
   // Navbar
   var st = $(this).scrollTop();
   var navbar = $("#header-navbar")
-
   // Make sure they scroll more than delta
   if(st <= navbar.height() || Math.abs(lastScrollTop - st) > navBarScrollDelta) {
     if (st <= navbar.height() || st < lastScrollTop) {
@@ -16,9 +15,7 @@ $(document).ready(function() {
       navbar.addClass("navbar-up")
     }
   }
-
   lastScrollTop = st;
   });
-
 
 });

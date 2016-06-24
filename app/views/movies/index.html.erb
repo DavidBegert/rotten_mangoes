@@ -19,10 +19,7 @@
     <%= link_to "Submit a new movie!", new_movie_path %>
   </div>
   <%= render 'search' %>
-  
   <hr>
-  <% @movies.each do |movie| %>
-    <%= render partial: "movie", locals: { movie: movie } %>
-  <% end %>
+  <%= render @movies %> <!-- collection weird stuff going on -->
 
 </div>
