@@ -8,9 +8,11 @@
 </head>
 <body>
   <%= render 'layouts/navbar' %>
+  <div class="flash-messages">
   <% flash.each do |key, value| %>
     <%= content_tag(:div, value) %>
   <% end %>
+  </div>
   <%= yield %>
   <%= render 'layouts/footer' %>
 </body>

@@ -1,9 +1,13 @@
-<%= form_tag movies_path, method: "GET" do %>
-  <p>
-  <%= text_field_tag :term, params[:term], placeholder: "Search" %>
-  </p>
-  <p>
-  <%=select_tag(:duration, options_for_select([['Select an option', 0], ['Under 90 Minutes', 1], ['Between 90 and 120 Minutes', 2], ['Over 120 Minutes', 3]]))%>
-  </p>
-  <%= submit_tag "Search", name: nil %>
-<% end %>
+<div class="container">
+  <%= form_tag movies_path, method: "GET" do %>
+    <div class="row">
+    <%= text_field_tag :term, params[:term], placeholder: "Search For A Movie" %>
+    </div>
+    <br>
+    <div class="row">
+    <%=select_tag(:duration, options_for_select([['Select an option', 0], ['Under 90 Minutes', 1], ['Between 90 and 120 Minutes', 2], ['Over 120 Minutes', 3]]))%>
+    </div> <br>
+    <%= submit_tag "Search", name: nil %>
+  <% end %>
+  </div>
+</div>

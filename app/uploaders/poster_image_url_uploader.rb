@@ -37,7 +37,7 @@ class PosterImageUrlUploader < CarrierWave::Uploader::Base
   end
 
   version :big_thumb do
-    process resize_to_limit: [400, 10000]
+    process resize_to_limit: [250, 500]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

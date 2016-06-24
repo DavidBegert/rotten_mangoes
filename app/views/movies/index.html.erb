@@ -14,8 +14,12 @@
 
 
 <div class= "container"> 
-  <%= link_to "Submit a movie!", new_movie_path %>
+  <br><br>
+  <div id="sumbit-a-movie" class="row text-center">
+    <%= link_to "Submit a new movie!", new_movie_path %>
+  </div>
   <%= render 'search' %>
+  
   <hr>
   <% @movies.each do |movie| %>
     <%= render partial: "movie", locals: { movie: movie } %>

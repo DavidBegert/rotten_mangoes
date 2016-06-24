@@ -2,4 +2,11 @@
 
 <%= @user.full_name %> 
 <%= @user.email %> <br>
-<%= link_to "log in as this user", admin_sessions_path(id: @user.id), method: :put %>
+<%= link_to "Log in as this User", admin_sessions_path(id: @user.id), method: :put %>
+<hr>
+<h4> <u>Reviews:</u> </h4><br>
+<% @user.reviews.each do |review| %>
+  <h5> <%= link_to review.movie.title, movie_path(review.movie) %> </h5>
+  <p><%= review.text %></p>
+  <p><%= review.rating_out_of_ten %>/10</p>
+<% end %>

@@ -20,6 +20,5 @@ $(document).ready(function() {
   lastScrollTop = st;
   });
 
-  //$('#average-rating')
 
 });
