@@ -1,0 +1,33 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body { 
+    padding-top: 50px; 
+}
+
+#header-navbar {
+  transition: top 0.4s ease-in-out;
+  overflow: hidden;
+  background-color: #000033;
+  color: #000033;
+}
+
+.small-hr {
+  width: 15%;
+}
+
+.intro-header {
+ background-image: url('/assets/home_image.jpg');
+ height: 600px;
+ background-size: cover;
+ background-size: 100% 100%;
+ overflow: hidden;
+}
+
+.header-text-blur {
+  color: white;
+  text-shadow: 0.1em 0.1em 0.4em black;
+}
+.navbar-up {
+  top: -50px;
+}

@@ -39,6 +39,7 @@ end
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'rmagick'
 gem 'carrierwave'
+gem 'bootstrap-sass'
 
 # Use unicorn as the app server
 # gem 'unicorn'
