@@ -1,5 +1,7 @@
 class MoviesController < ApplicationController
+  include MoviesHelper
   def index
+    @movie = Movie.new
     @movies = Movie.all
     if params[:term].present?
       @movies = @movies.title_or_director_filter(params[:term])
@@ -24,9 +26,23 @@ class MoviesController < ApplicationController
   def create
     @movie = Movie.new(movie_params)
     if @movie.save
-      redirect_to movies_path, notice: "#{@movie.title} was submitted successfully!"
+      respond_to do |format|
+        format.html { redirect_to movies_path}
+        # format.json {render json: @movie}
+        format.json do
+          @json_movie = @movie.as_json(methods: :average_review)
+          @json_movie[:formatted_date] = formatted_date(@movie.release_date)
+          @json_movie[:image_src] = @movie.poster_image_url_url(:thumb) 
+        #   # 2) slap a bunch of extra data on there, like 
+        #   #      @movie.average_review
+        #   #      link_to image_tag(movie.poster_image_url_url(:thumb))
+        #   #       etc
+        #   # 3) send that json thing back to the client
+          render json: @json_movie
+        end
+      end
     else
-      render :new
+      render json: {message: "Not created successfully"}.to_json
     end
   end
 
